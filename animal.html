@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+ <head>
+    <title>Animal Form</title>
+ </head>
+<body>
+<h1>Animal Game by Luke Vaughn</h1>
+
+<form>
+    <label for="animGuess">The hidden animal type</label>
+    <input type ="password" id="animGuess" name="animGuess" value="Chicken"> <br>
+
+    <label for="checkGuess">Guess the Animal</label>
+    <input type ="text" id="checkGuess" name="checkGuess" autofocus> <br>
+
+    <input type="button" onclick="checkAnimal()" value="Guess the Animal">
+</form>
+
+
+<p id="result">This text will be replaced </p>
+
+<script> 
+var wrong=0;
+var correct=0;
+
+function checkAnimal (){
+
+    console.log("Getting form values")
+    animGuess = document.getElementById("animGuess").value
+    userGuess = document.getElementById("checkGuess").value
+    
+    if(animGuess == userGuess){
+        alert("Ruff ruff");
+        correct += 1
+    } else {
+        alert("Grrrr");
+        wrong += 1
+    }
+    out = document.getElementById("result")
+    out.innerHTML = "Correct Guesses = "+correct+" Wrong Guesses = "+wrong
+}
+</script>
+
+</body>
+</html> 
