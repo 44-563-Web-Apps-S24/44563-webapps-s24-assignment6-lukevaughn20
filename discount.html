@@ -19,23 +19,74 @@
     <input type="button" value="Show totals" onclick="discount()">
 </form>
 
+<p id="result"> </p>
 
-<p id="result">Hello </p>
+<form>
+    <input type="radio" id="sum" value="sum" onclick="chooseOp(id)">
+    <label for="sum">Sum</label></br>
+  
+    <input type="radio" id="mult" value="multiply" onclick="chooseOp(id)">
+    <label for="mult">Mult</label></br>
+  
+    <input type="radio" id="exp" value="exponent" onclick="chooseOp(id)">
+    <label for="exp">Exp</label></br>
+  </form>
+
+  <p id="resultRadio"> </p>
 
 <script> 
 
+function chooseOp(id){
+    console.log(id)
+    unitPrice = parseInt(document.getElementById("pricePer").value)
+    discountPer = parseInt(document.getElementById("redux").value)
+    let total = 0;
+    out = document.getElementById("resultRadio")
+
+    if(id == "sum"){
+        total = unitPrice + discountPer
+        out.innerHTML = "Sum of " + unitPrice + " and " + discountPer + " is " + total
+    }
+    else if(id == "mult"){
+        total = unitPrice * discountPer
+        out.innerHTML = "Product of " + unitPrice + " and " + discountPer + " is " + total
+    }
+    else{
+        if(discountPer == 0){
+            total = 1
+        }
+        else if(discountPer == 1){
+            total = unitPrice
+        }
+        else{
+            for(let i = 0; i < discountPer; i++){
+                if(i ==0){
+                total += unitPrice
+                }
+                else{
+                    total *=unitPrice
+                }
+            }
+            out.innerHTML = unitPrice + " raised to the " + discountPer + " power is " + total
+        }
+    }
+    
+
+}
+
 function discount(){
-    unitPrice = document.getElementById("pricePer").value
-    number = document.getElementById("count").value
-    discountPer = document.getElementById("redux").value
+    unitPrice = parseInt(document.getElementById("pricePer").value)
+    number = parseInt(document.getElementById("count").value)
+    discountPer = parseInt(document.getElementById("redux").value)
 
     var myOutput = ""
     for(let i = 0; i < 5; i++)
     {
-        percentPer = discountPer + i
-        percent = (percentPer)/ 1000
+        
+        percent = (discountPer + i)/ 100
+        console.log(percent)
         total = (unitPrice * number) - ((unitPrice * number) * percent)
-        myOutput += (percent * 100)+ "% is " + total + " ; "
+        myOutput += (discountPer + i)+ "% is " + total + " ; "
     }
 
     out = document.getElementById("result")
