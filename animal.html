@@ -19,16 +19,38 @@
 
 <p id="result">This text will be replaced </p>
 
+<div>
+<img id="img" src="apple-juice.jpg" alt="Drink" style="width:150px;height:150px;" onclick="selectImage()">
+</div>
+
+
 <script> 
 var wrong=0;
 var correct=0;
+var useImage=1;
+
+function selectImage(){
+    switch (useImage){
+        case 1:
+            document.getElementById("img").src="tea.jpg";
+            useImage = 2;
+            break;
+        case 2:
+            document.getElementById("img").src="grapejuice.png";
+            useImage = 3;
+            break;
+        case 3:
+            document.getElementById("img").src="apple-juice.jpg";
+            useImage = 1;
+            break;
+    }
+}
 
 function checkAnimal (){
 
     console.log("Getting form values")
     animGuess = document.getElementById("animGuess").value
     userGuess = document.getElementById("checkGuess").value
-    
     if(animGuess == userGuess){
         alert("Ruff ruff");
         correct += 1
