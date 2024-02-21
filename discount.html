@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Applying Discounts</title>
+</head>
+<body>
+<h1>Luke Vaughn discount calculations</h1>
+
+<form>
+    <label for="pricePer">Enter price per </label>
+    <input type ="number" id="pricePer" name="pricePEr" value=10> <br>
+
+    <label for="count">Enter the number of items </label>
+    <input type ="number" id="count" name="count" value=9> <br>
+
+    <label for="redux">Enter the discount percent </label>
+    <input type ="number" id="redux" name="redux" value=5> <br>
+
+    <input type="button" value="Show totals" onclick="discount()">
+</form>
+
+
+<p id="result">Hello </p>
+
+<script> 
+
+function discount(){
+    unitPrice = document.getElementById("pricePer").value
+    number = document.getElementById("count").value
+    discountPer = document.getElementById("redux").value
+
+    var myOutput = ""
+    for(let i = 0; i < 5; i++)
+    {
+        percentPer = discountPer + i
+        percent = (percentPer)/ 1000
+        total = (unitPrice * number) - ((unitPrice * number) * percent)
+        myOutput += (percent * 100)+ "% is " + total + " ; "
+    }
+
+    out = document.getElementById("result")
+    out.innerHTML = "Totals are: " + myOutput
+}
+</script>
+
+</body>
+</html> 
