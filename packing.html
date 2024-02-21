@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Packing Simulator</title>
+    </head>
+ 
+<body>
+
+<h1>Luke Vaughn packs for a trip</h1>
+
+<form>
+    <label for="packLight">Pack light</label>
+    <input type ="checkbox" id="packLight" name="packLight" value="True"> <br>
+
+    <label for="carryOn">Carry on</label>
+    <input type ="checkbox" id="carryOn" name="carryOn" value="True"> <br>
+
+    <label for="tablet">Tablet</label>
+    <input type ="checkbox" id="tablet" name="tablet" value="False"> <br>
+
+    <input type="button" onclick="selectPack()" value="Select for packing">
+</form>
+
+
+<p id="result"></p>
+
+<script> 
+    let my_pack = {};
+    
+function selectPack(){
+    my_pack = {};
+    my_pack = {light: document.getElementById("packLight").checked, carry: document.getElementById("carryOn").checked, tablet: document.getElementById("tablet").checked}
+    console.log(my_pack)
+    document.getElementById("result").innerHTML = JSON.stringify(my_pack)
+}
+</script>
+
+</body>
+</html> 
