@@ -48,8 +48,8 @@ function selectPack(){
 function updatePack(){
     month = document.getElementById("month").value
     price = document.getElementById("price").value
-    my_pack[0] = month
-    my_pack[1] = price
+    my_pack["month"] = month
+    my_pack["price"] = price
     document.getElementById("resultII").innerHTML = JSON.stringify(my_pack)
 }
 </script>
